@@ -1,12 +1,12 @@
 import React from 'react';
 import ListItem from './ListItem';
 
-const ListView = ({ inbox, setDetailView }) => {
+const ListView = ({ inbox, emailView }) => {
   return (
     <div>
       <h2>Inbox</h2>
       {inbox.map((email) => (
-        <ListItem email={email} onClick={setDetailView} />
+        <ListItem email={email} emailView={emailView} />
       ))}
     </div>
   );

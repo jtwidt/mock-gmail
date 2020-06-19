@@ -1,12 +1,12 @@
 import React from 'react';
 
-const ListItem = ({ email, setDetailView }) => {
-  let emailView = `inbox[${email.id}]`;
+const ListItem = ({ email, emailView }) => {
+  let index = email.id - 1;
   return (
     <div
       className="list-item"
       key={email.id}
-      onClick={() => setDetailView(emailView)}
+      onClick={() => (emailView = `inbox[${index}]`)}
     >
       Sender: {email.sender}
       <br />
