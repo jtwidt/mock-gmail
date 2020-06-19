@@ -1,17 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-const ListItem = ({ email, emailView }) => {
-  let index = email.id - 1;
+const ListItem = ({ email }) => {
   return (
-    <div
-      className="list-item"
-      key={email.id}
-      onClick={() => (emailView = `inbox[${index}]`)}
-    >
+    <Fragment>
       Sender: {email.sender}
       <br />
       Subject: {email.subject}
-    </div>
+    </Fragment>
   );
 };
 

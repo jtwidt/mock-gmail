@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import './App.css';
-import Context from './components/Context';
 import Nav from './components/Nav';
 import ListView from './components/ListView';
 import DetailView from './components/DetailView';
@@ -18,37 +17,33 @@ const App = (props) => {
       id: 1,
     },
   ]);
-  const [detailView, setDetailView] = useState(inbox[0]);
-  const emailView = inbox[0];
-
-  useEffect(() => {
-    setDetailView(emailView);
-  }, [emailView]);
-
-  const changeEmail = (value) => {
-    setDetailView(value);
-  };
+  const [emailID, setEmailID] = useState(0);
+  const [email, setEmail] = useState({});
 
   useEffect(() => {
     axios.get('http://localhost:3001/emails').then((response) => {
       setInbox(response.data.map((email) => email));
     });
-  }, []);
+  }, [inbox]);
+
+  useEffect(() => {
+    setEmail(inbox[emailID]);
+  }, [emailID]);
 
   return (
-    <Context>
+    <Fragment>
       <div className="navbar">
         <Nav />
       </div>
       <div className="email-container">
         <div className="list-view">
-          <ListView inbox={inbox} emailView={emailView} />
+          <ListView inbox={inbox} onClick={(value) => setEmailID(value)} />
         </div>
         <div className="detail-view">
-          <DetailView email={detailView} />
+          <DetailView email={email} />
         </div>
       </div>
-    </Context>
+    </Fragment>
   );
 };
 
