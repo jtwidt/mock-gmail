@@ -1,5 +1,14 @@
 import React from 'react';
 
-export default function Search() {
-  return <div></div>;
-}
+const Search = (props) => {
+  return (
+    <div>
+      <form>
+        <input type="text" name="search" placeholder="Search..."></input>
+        <button>Search</button>
+      </form>
+    </div>
+  );
+};
+
+export default Search;

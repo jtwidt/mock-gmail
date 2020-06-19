@@ -1,5 +1,15 @@
 import React from 'react';
+import ListItem from './ListItem';
 
-export default function ListView() {
-  return <div></div>;
-}
+const ListView = ({ inbox, setDetailView }) => {
+  return (
+    <div>
+      <h2>Inbox</h2>
+      {inbox.map((email) => (
+        <ListItem email={email} onClick={setDetailView} />
+      ))}
+    </div>
+  );
+};
+
+export default ListView;
