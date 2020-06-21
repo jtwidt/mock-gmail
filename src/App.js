@@ -19,6 +19,7 @@ const App = (props) => {
   ]);
   const [emailID, setEmailID] = useState(0);
   const [email, setEmail] = useState({});
+  const [outbox, setOutbox] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:3001/emails').then((response) => {
@@ -37,7 +38,12 @@ const App = (props) => {
       </div>
       <div className="email-container">
         <div className="list-view">
-          <ListView inbox={inbox} onClick={(value) => setEmailID(value)} />
+          <ListView
+            inbox={inbox}
+            onClick={(value) => setEmailID(value)}
+            outbox={outbox}
+            setOutbox={(value) => setOutbox(value)}
+          />
         </div>
         <div className="detail-view">
           <DetailView email={email} />

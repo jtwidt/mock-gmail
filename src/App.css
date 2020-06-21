@@ -85,3 +85,24 @@
   border-radius: 18px;
   border: 1px solid #cfcece;
 }
+
+.recepient-block {
+  float: left;
+  padding: 3px;
+}
+
+.subject-block {
+  padding: 3px;
+}
+
+.recepient-input {
+  margin: 0px 10px;
+}
+
+.subject-input {
+  margin: 0px 10px;
+}
+
+.sender-input {
+  margin: 0px 10px;
+}
